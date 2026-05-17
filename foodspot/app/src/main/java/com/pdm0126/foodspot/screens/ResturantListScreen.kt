@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.pdm0126.foodspot.model.Restaurant
-import com.pdm0126.foodspot.screens.RestaurantListViewModel
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
