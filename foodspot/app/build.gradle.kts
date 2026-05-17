@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "com.pdm0126.taller2"
-    compileSdk = 35
+    namespace = "com.pdm0126.foodspot"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.pdm0126.taller2"
+        applicationId = "com.pdm0126.foodspot"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
@@ -28,12 +28,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
     }
 
     buildFeatures {
@@ -50,9 +52,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.core)
 
     // Navigation 3
     implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 
     // Coil

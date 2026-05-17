@@ -4,12 +4,13 @@ import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed interface AppRoutes : NavKey{
-        @Serializable
-        data object RestaurantListScreen : AppRoutes
-        @Serializable
-        data class ResturantDetailScreen(val id: Int) : AppRoutes
-        @Serializable
-        data object RestaurantSearchScreen : AppRoutes
-}
+sealed interface AppRoutes : NavKey {
+    @Serializable
+    data object RestaurantList : AppRoutes
 
+    @Serializable
+    data class RestaurantDetail(val id: Int) : AppRoutes
+
+    @Serializable
+    data object RestaurantSearch : AppRoutes
+}

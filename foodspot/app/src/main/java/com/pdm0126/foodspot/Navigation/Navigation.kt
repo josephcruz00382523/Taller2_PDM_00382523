@@ -1,44 +1,38 @@
 package com.pdm0126.foodspot.Navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation3.runtime.entry
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.pdm0126.foodspot.screens.RestaurantListScreen
 
 @Composable
 fun NavigationGraph() {
-    val backStack = rememberNavBackStack(AppRoutes.RestaurantListScreen)
+    val backStack = rememberNavBackStack(AppRoutes.RestaurantList)
 
     NavDisplay(
         backStack = backStack,
         onBack = { backStack.removeLastOrNull() },
         entryProvider = entryProvider {
 
-            entry<AppRoutes.RestaurantListScreen> {
+            entry<AppRoutes.RestaurantList> {
                 RestaurantListScreen(
                     onNavigateToDetail = { id ->
-                        backStack.add(AppRoutes.ResturantDetailScreen(id))
+                        backStack.add(AppRoutes.RestaurantDetail(id))
                     },
                     onNavigateToSearch = {
-                        backStack.add(AppRoutes.SearchScreen)
+                        backStack.add(AppRoutes.RestaurantSearch)
                     }
                 )
             }
 
-            entry<AppRoutes.ResturantDetailScreen> { route ->
-                RestaurantDetailScreen(
-                    restaurantId = route.id,
-                    onBack = { backStack.removeLastOrNull() }
-                )
+            entry<AppRoutes.RestaurantDetail> { route ->
+                // TODO: Implementar RestaurantDetailScreen
             }
 
-            entry<AppRoutes.SearchScreen> {
-                SearchScreen(
-                    onNavigateToDetail = { id ->
-                        backStack.add(AppRoutes.ResturantDetailScreen(id))
-                    },
-                    onBack = { backStack.removeLastOrNull() }
-                )
+            entry<AppRoutes.RestaurantSearch> {
+                // TODO: Implementar SearchScreen
             }
         }
     )
